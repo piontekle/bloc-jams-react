@@ -54,6 +54,22 @@ class Album extends Component {
     this.play();
   }
 
+  handleNextClick() {
+    const currentIndex = this.state.album.songs.findIndex(song => this.state.currentSong === song);
+    const newIndex = Math.min(currentIndex + 1, this.state.album.songs.length - 1);
+    const newSong = this.state.album.songs[newIndex];
+
+    if (this.state.currentSong === newSong && this.state.isPlaying) {
+      document.getElementById("next").disabled = true;
+    } else {
+      this.setSong(newSong);
+      this.play();
+    }
+
+
+
+  }
+
   mouseEnter(index) {
     this.setState({ isHovering: index })
   }
@@ -107,6 +123,7 @@ class Album extends Component {
         currentSong={this.state.currentSong}
         handleSongClick={() => this.handleSongClick(this.state.currentSong)}
         handlePrevClick={() => this.handlePrevClick()}
+        handleNextClick={() => this.handleNextClick()}
          />
       </section>
     );
