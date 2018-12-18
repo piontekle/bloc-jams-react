@@ -12,7 +12,8 @@ class Album extends Component {
     this.state = {
       album: album,
       currentSong: album.songs[0],
-      isPlaying: false
+      isPlaying: false,
+      isHovering: false
     };
 
     this.audioElement = document.createElement('audio');
@@ -44,6 +45,16 @@ class Album extends Component {
     }
   }
 
+  mouseEnter(index) {
+    this.setState({ isHovering: index })
+  }
+
+  mouseLeave() {
+    this.setState({ isHovering:false })
+  }
+
+
+
   render() {
     return (
       <section className="album">
@@ -64,8 +75,17 @@ class Album extends Component {
           <tbody>
             {
               this.state.album.songs.map ( (song, index) =>
-                <tr className="song" key={index} onClick={() => this.handleSongClick(song)}>
-                  <td id="song-number-row">{index + 1}</td>
+                <tr className="song"
+                  key={index}
+                  onClick={() => this.handleSongClick(song)}
+                  onMouseEnter={() => this.mouseEnter(index)}
+                  onMouseLeave={() => this.mouseLeave()}>
+                  <td id="song-number-row">
+                    {
+                      this.state.currentSong.title === song.title ?
+                      (<span className={this.state.isPlaying ? "ion-md-pause" : "ion-md-play-circle"}/>) : this.state.isHovering === index ? (<span className="ion-md-play-circle"/>) : (<span className="song-number">{index + 1}</span>)
+                    }
+                  </td>
                   <td id="song-title-row">{song.title}</td>
                   <td id="song-duration-row">{song.duration}</td>
                 </tr>
