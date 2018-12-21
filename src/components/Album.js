@@ -151,11 +151,11 @@ class Album extends Component {
                   <td id="song-number-row">
                     {
                       this.state.currentSong.title === song.title ?
-                      (<span className={this.state.isPlaying ? "ion-md-pause" : "ion-md-play-circle"}/>) : this.state.isHovering === index ? (<span className="ion-md-play-circle"/>) : (<span className="song-number">{index + 1}</span>)
+                      (<span className={this.state.isPlaying ? "icon ion-md-pause" : "icon ion-md-play-circle"}/>) : this.state.isHovering === index ? (<span className="icon ion-md-play-circle" />) : (<span className="song-number">{index + 1}</span>)
                     }
                   </td>
                   <td id="song-title-row">{song.title}</td>
-                  <td id="song-duration-row">{song.duration}</td>
+                  <td id="song-duration-row">{this.formatTime(song.duration)}</td>
                 </tr>
               )
             }
