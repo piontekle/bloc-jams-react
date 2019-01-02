@@ -135,33 +135,35 @@ class Album extends Component {
             <div id="release-info" className="albumText">{this.state.album.releaseInfo}</div>
           </div>
         </section>
-        <table className="col-6 col-md-4 vcenter" id="song-list">
-          <colgroup>
-            <col id="song-number-column" />
-            <col id="song-title-column"/>
-            <col id="song-duration-column"/>
-          </colgroup>
-          <tbody className="albumText">
-            {
-              this.state.album.songs.map ( (song, index) =>
-                <tr className="song"
-                  key={index}
-                  onClick={() => this.handleSongClick(song)}
-                  onMouseEnter={() => this.mouseEnter(index)}
-                  onMouseLeave={() => this.mouseLeave()}>
-                  <td id="song-number-row">
-                    {
-                      this.state.currentSong.title === song.title ?
-                      (<span className={this.state.isPlaying ? "icon ion-md-pause" : "icon ion-md-play-circle"}/>) : this.state.isHovering === index ? (<span className="icon ion-md-play-circle" />) : (<span className="song-number">{index + 1}</span>)
-                    }
-                  </td>
-                  <td id="song-title-row">{song.title}</td>
-                  <td id="song-duration-row">{this.formatTime(song.duration)}</td>
-                </tr>
-              )
-            }
-          </tbody>
-        </table>
+        <div className="col-6 col-md-4">
+          <table id="song-list">
+            <colgroup>
+              <col id="song-number-column" />
+              <col id="song-title-column"/>
+              <col id="song-duration-column"/>
+            </colgroup>
+            <tbody className="albumText">
+              {
+                this.state.album.songs.map ( (song, index) =>
+                  <tr className="song"
+                    key={index}
+                    onClick={() => this.handleSongClick(song)}
+                    onMouseEnter={() => this.mouseEnter(index)}
+                    onMouseLeave={() => this.mouseLeave()}>
+                    <td id="song-number-row">
+                      {
+                        this.state.currentSong.title === song.title ?
+                        (<span className={this.state.isPlaying ? "icon ion-md-pause" : "icon ion-md-play-circle"}/>) : this.state.isHovering === index ? (<span className="icon ion-md-play-circle" />) : (<span className="song-number">{index + 1}</span>)
+                      }
+                    </td>
+                    <td id="song-title-row">{song.title}</td>
+                    <td id="song-duration-row">{this.formatTime(song.duration)}</td>
+                  </tr>
+                )
+              }
+            </tbody>
+          </table>
+        </div>
         <PlayerBar
         isPlaying={this.state.isPlaying}
         currentSong={this.state.currentSong}

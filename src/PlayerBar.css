@@ -5,4 +5,17 @@
   left: 65%;
   width: 25%;
   background-color: rgba(144,144,144, 0.69);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+button {
+    border-radius: 10px 10px 10px 10px;
+    background-color: #99ff00;
+}
+
+button:hover {
+  background-color: fuchsia;
+  border: 2px solid #4CAF50;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
