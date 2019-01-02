@@ -15,12 +15,16 @@ class App extends Component {
             <Link to='/Library'> Library</Link>
           </nav>
           <h1>Bloc Jams</h1>
+          <p className="credit">Photo by Drew Patrick Miller on Unsplash</p>
         </header>
         <main>
           <Route exact path="/" component={Landing} />
           <Route path="/library" component={Library} />
           <Route path="/album/:slug" component={Album} />
         </main>
+        <footer>
+          <p className="credit">Photo by Armand Khoury on Unsplash</p>
+        </footer>
       </div>
     );
   }

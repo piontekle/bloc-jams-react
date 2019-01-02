@@ -3,15 +3,69 @@
 }
 
 .App header {
-  background-color: #282c34;
+  background-image: url("https://i.imgur.com/cZAV6bW.jpg");
+  background-repeat: repeat-x;
   min-height: 10vh;
-  display: flex;
+  width: 100%;
+  display: block;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.App .credit {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h1 {
+  font-family: 'Major Mono Display', monospace;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h2 {
+  font-family: 'Staatliches', cursive;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h4 {
+  font-family: 'Staatliches', cursive;
+}
+
+p {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+body {
+  margin-top: 100px;
+  z-index: 2;
+  background-image: url(https://i.imgur.com/bdquULv.jpg);
+  background-attachment: fixed;
+}
+
+.albumLink {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.albumText {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
